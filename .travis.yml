@@ -29,18 +29,20 @@ script:
     - pod lib lint --allow-warnings
 
     - echo Build as static library
-    - xcodebuild build -workspace SDWebImage.xcworkspace -scheme 'SDWebImage iOS static' -sdk iphonesimulator PLATFORM_NAME=iphonesimulator -configuration Debug | xcpretty -c
-    - xcodebuild build -workspace SDWebImage.xcworkspace -scheme 'SDWebImage watchOS static' -sdk watchsimulator -configuration Debug | xcpretty -c
+    - xcodebuild build -workspace SDWebImage.xcworkspace -scheme 'SDWebImage static' -sdk iphonesimulator PLATFORM_NAME=iphonesimulator -configuration Debug | xcpretty -c
+    - xcodebuild build -workspace SDWebImage.xcworkspace -scheme 'SDWebImage static' -sdk watchsimulator -configuration Debug | xcpretty -c
 
     - echo Build as dynamic framework
-    - xcodebuild build -workspace SDWebImage.xcworkspace -scheme 'SDWebImage OSX' -sdk macosx -configuration Debug | xcpretty -c
-    - xcodebuild build -workspace SDWebImage.xcworkspace -scheme 'SDWebImage iOS' -sdk iphonesimulator PLATFORM_NAME=iphonesimulator -configuration Debug | xcpretty -c
-    - xcodebuild build -workspace SDWebImage.xcworkspace -scheme 'SDWebImage tvOS' -sdk appletvsimulator -configuration Debug | xcpretty -c
-    - xcodebuild build -workspace SDWebImage.xcworkspace -scheme 'SDWebImage watchOS' -sdk watchsimulator -configuration Debug | xcpretty -c
-    
-    - echo Clean DerivedData
-    - rm -rf ~/Library/Developer/Xcode/DerivedData
+    - xcodebuild build clean -workspace SDWebImage.xcworkspace -scheme 'SDWebImage' -sdk macosx -configuration Debug | xcpretty -c
+    - xcodebuild build clean -workspace SDWebImage.xcworkspace -scheme 'SDWebImage' -sdk iphonesimulator PLATFORM_NAME=iphonesimulator -configuration Debug | xcpretty -c
+    - xcodebuild build clean -workspace SDWebImage.xcworkspace -scheme 'SDWebImage' -sdk appletvsimulator -configuration Debug | xcpretty -c
+    - xcodebuild build clean -workspace SDWebImage.xcworkspace -scheme 'SDWebImage' -sdk watchsimulator -configuration Debug | xcpretty -c
 
+    - echo Build as dynamic framework (+MapKit) - no watchos
+    - xcodebuild build clean -workspace SDWebImage.xcworkspace -scheme 'SDWebImage+MapKit' -sdk macosx -configuration Debug | xcpretty -c
+    - xcodebuild build clean -workspace SDWebImage.xcworkspace -scheme 'SDWebImage+MapKit' -sdk iphonesimulator PLATFORM_NAME=iphonesimulator -configuration Debug | xcpretty -c
+    - xcodebuild build clean -workspace SDWebImage.xcworkspace -scheme 'SDWebImage+MapKit' -sdk appletvsimulator -configuration Debug | xcpretty -c
+    
     - echo Build the Demo apps
     - pod install --project-directory=Examples
     - xcodebuild build -workspace SDWebImage.xcworkspace -scheme 'SDWebImage OSX Demo' -sdk macosx -configuration Debug | xcpretty -c
@@ -48,9 +50,7 @@ script:
     - xcodebuild build -workspace SDWebImage.xcworkspace -scheme 'SDWebImage TV Demo' -sdk appletvsimulator -configuration Debug | xcpretty -c
     - xcodebuild build -workspace SDWebImage.xcworkspace -scheme 'SDWebImage Watch Demo' -configuration Debug -destination 'name=iPhone 8' | xcpretty -c
 
-    - echo Clean DerivedData
     - mkdir DerivedData
-    - rm -rf ~/Library/Developer/Xcode/DerivedData
 
     - echo Run the tests
     - pod install --project-directory=Tests
