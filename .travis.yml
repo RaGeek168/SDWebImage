@@ -32,16 +32,14 @@ script:
     - xcodebuild build -workspace SDWebImage.xcworkspace -scheme 'SDWebImage static' -sdk iphonesimulator PLATFORM_NAME=iphonesimulator -configuration Debug | xcpretty -c
     - xcodebuild build -workspace SDWebImage.xcworkspace -scheme 'SDWebImage static' -sdk watchsimulator -configuration Debug | xcpretty -c
 
-    - echo Build as dynamic framework
+    - echo Build as dynamic frameworks
     - xcodebuild build clean -workspace SDWebImage.xcworkspace -scheme 'SDWebImage' -sdk macosx -configuration Debug | xcpretty -c
     - xcodebuild build clean -workspace SDWebImage.xcworkspace -scheme 'SDWebImage' -sdk iphonesimulator PLATFORM_NAME=iphonesimulator -configuration Debug | xcpretty -c
     - xcodebuild build clean -workspace SDWebImage.xcworkspace -scheme 'SDWebImage' -sdk appletvsimulator -configuration Debug | xcpretty -c
     - xcodebuild build clean -workspace SDWebImage.xcworkspace -scheme 'SDWebImage' -sdk watchsimulator -configuration Debug | xcpretty -c
-
-    - echo "Build as dynamic framework (+MapKit) - no watchos"
-    - xcodebuild build clean -workspace SDWebImage.xcworkspace -scheme 'SDWebImage+MapKit' -sdk macosx -configuration Debug | xcpretty -c
-    - xcodebuild build clean -workspace SDWebImage.xcworkspace -scheme 'SDWebImage+MapKit' -sdk iphonesimulator PLATFORM_NAME=iphonesimulator -configuration Debug | xcpretty -c
-    - xcodebuild build clean -workspace SDWebImage.xcworkspace -scheme 'SDWebImage+MapKit' -sdk appletvsimulator -configuration Debug | xcpretty -c
+    - xcodebuild build clean -workspace SDWebImage.xcworkspace -scheme 'SDMapKitWebImage' -sdk macosx -configuration Debug | xcpretty -c
+    - xcodebuild build clean -workspace SDWebImage.xcworkspace -scheme 'SDMapKitWebImage' -sdk iphonesimulator PLATFORM_NAME=iphonesimulator -configuration Debug | xcpretty -c
+    - xcodebuild build clean -workspace SDWebImage.xcworkspace -scheme 'SDMapKitWebImage' -sdk appletvsimulator -configuration Debug | xcpretty -c
     
     - echo Build the Demo apps
     - pod install --project-directory=Examples

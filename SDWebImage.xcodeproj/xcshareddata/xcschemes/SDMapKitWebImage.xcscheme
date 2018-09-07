@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "80B6DF862142B71600BCB334"
-               BuildableName = "SDWebImage+MapKit.framework"
-               BlueprintName = "SDWebImage+MapKit"
+               BuildableName = "SDWebImage.framework"
+               BlueprintName = "SDMapKitWebImage"
                ReferencedContainer = "container:SDWebImage.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -46,8 +46,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "80B6DF862142B71600BCB334"
-            BuildableName = "SDWebImage+MapKit.framework"
-            BlueprintName = "SDWebImage+MapKit"
+            BuildableName = "SDWebImage.framework"
+            BlueprintName = "SDMapKitWebImage"
             ReferencedContainer = "container:SDWebImage.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -64,8 +64,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "80B6DF862142B71600BCB334"
-            BuildableName = "SDWebImage+MapKit.framework"
-            BlueprintName = "SDWebImage+MapKit"
+            BuildableName = "SDWebImage.framework"
+            BlueprintName = "SDMapKitWebImage"
             ReferencedContainer = "container:SDWebImage.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
