@@ -38,7 +38,7 @@ script:
     - xcodebuild build clean -workspace SDWebImage.xcworkspace -scheme 'SDWebImage' -sdk appletvsimulator -configuration Debug | xcpretty -c
     - xcodebuild build clean -workspace SDWebImage.xcworkspace -scheme 'SDWebImage' -sdk watchsimulator -configuration Debug | xcpretty -c
 
-    - echo Build as dynamic framework (+MapKit) - no watchos
+    - echo "Build as dynamic framework (+MapKit) - no watchos"
     - xcodebuild build clean -workspace SDWebImage.xcworkspace -scheme 'SDWebImage+MapKit' -sdk macosx -configuration Debug | xcpretty -c
     - xcodebuild build clean -workspace SDWebImage.xcworkspace -scheme 'SDWebImage+MapKit' -sdk iphonesimulator PLATFORM_NAME=iphonesimulator -configuration Debug | xcpretty -c
     - xcodebuild build clean -workspace SDWebImage.xcworkspace -scheme 'SDWebImage+MapKit' -sdk appletvsimulator -configuration Debug | xcpretty -c
